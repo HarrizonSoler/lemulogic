@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://eoyk05uxcfki"]
+
+[ext_resource type="Script" path="res://src/editor/node/prefab/base/base_string.gd" id="1_3yv4i"]
+[ext_resource type="Resource" uid="uid://8g2oqeetefk0" path="res://ui/editor/node/types/base.tres" id="2_fnf8a"]
+[ext_resource type="Script" path="res://src/editor/node/slot.gd" id="3_pkrwb"]
+
+[sub_resource type="Resource" id="Resource_ursgj"]
+script = ExtResource("3_pkrwb")
+id = 0
+name = &"RETURN"
+type = 0
+capacity = 0
+is_optional = false
+
+[node name="BaseString" type="GraphNode" node_paths=PackedStringArray("text_input")]
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("1_3yv4i")
+text_input = NodePath("TextEdit")
+type = ExtResource("2_fnf8a")
+slots = Array[ExtResource("3_pkrwb")]([SubResource("Resource_ursgj")])
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+text = "String"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+custom_minimum_size = Vector2(160, 80)
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Write something"
+
+[connection signal="text_changed" from="TextEdit" to="." method="_on_text_edit_text_changed"]

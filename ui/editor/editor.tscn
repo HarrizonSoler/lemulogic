@@ -1,0 +1,135 @@
+[gd_scene load_steps=14 format=3 uid="uid://caobh0mu518pb"]
+
+[ext_resource type="Script" path="res://src/editor/graph/graph_manager.gd" id="1_8f6gy"]
+[ext_resource type="Script" path="res://src/editor/editor_manager.gd" id="1_m3fnl"]
+[ext_resource type="Script" path="res://src/editor/graph/graph_facade.gd" id="1_q068f"]
+[ext_resource type="PackedScene" uid="uid://ptcgjswgvee5" path="res://ui/editor/variables/variables_container.tscn" id="2_5d4rq"]
+[ext_resource type="PackedScene" uid="uid://cyce86pyepl36" path="res://ui/editor/node/prefab/base/base_start.tscn" id="2_fag43"]
+[ext_resource type="PackedScene" uid="uid://btihy3oy7qhaw" path="res://ui/editor/node/components/node_items_container.tscn" id="3_e466s"]
+[ext_resource type="Script" path="res://src/editor/sidebar/prefab/base_items_container.gd" id="4_bkdhc"]
+[ext_resource type="Script" path="res://src/editor/sidebar/prefab/math_items_container.gd" id="5_d7uhu"]
+[ext_resource type="Script" path="res://src/editor/sidebar/prefab/logic_items_container.gd" id="6_ugj4c"]
+[ext_resource type="Script" path="res://src/editor/sidebar/prefab/context_items_container.gd" id="7_n3ule"]
+[ext_resource type="Script" path="res://src/editor/node/slot.gd" id="9_whik1"]
+[ext_resource type="PackedScene" uid="uid://cgejp4vm2l2s2" path="res://ui/editor/error/error_window.tscn" id="11_3htot"]
+
+[sub_resource type="Resource" id="Resource_6xtqo"]
+resource_local_to_scene = true
+script = ExtResource("9_whik1")
+id = 0
+name = &"START"
+type = 1
+capacity = 1
+node_restriction_keyword = &""
+is_optional = false
+
+[node name="Editor" type="PanelContainer" node_paths=PackedStringArray("continue_button", "graph_manager", "graph", "error_popup", "save_button", "load_button")]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m3fnl")
+continue_button = NodePath("VBoxContainer/Header/MarginContainer/HBoxContainer/ContinueButton")
+graph_manager = NodePath("VBoxContainer/BodyContainer/GraphManager")
+graph = NodePath("VBoxContainer/BodyContainer/GraphEdit")
+error_popup = NodePath("ErrorWindow")
+save_button = NodePath("VBoxContainer/Header/MarginContainer/HBoxContainer/HBoxContainer/SaveButton")
+load_button = NodePath("VBoxContainer/Header/MarginContainer/HBoxContainer/HBoxContainer/LoadButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Header" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Header"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Header/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Header/MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="SaveButton" type="Button" parent="VBoxContainer/Header/MarginContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "SAVE"
+
+[node name="LoadButton" type="Button" parent="VBoxContainer/Header/MarginContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "LOAD"
+
+[node name="ContinueButton" type="Button" parent="VBoxContainer/Header/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "CONTINUE"
+
+[node name="BodyContainer" type="HSplitContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+split_offset = 263
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/BodyContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="VBoxContainer" parent="VBoxContainer/BodyContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Variables" parent="VBoxContainer/BodyContainer/ScrollContainer/PanelContainer" instance=ExtResource("2_5d4rq")]
+layout_mode = 2
+
+[node name="BaseItemsContainer" parent="VBoxContainer/BodyContainer/ScrollContainer/PanelContainer" instance=ExtResource("3_e466s")]
+layout_mode = 2
+script = ExtResource("4_bkdhc")
+
+[node name="MathItemsContainer2" parent="VBoxContainer/BodyContainer/ScrollContainer/PanelContainer" instance=ExtResource("3_e466s")]
+layout_mode = 2
+script = ExtResource("5_d7uhu")
+
+[node name="LogicItemsContainer" parent="VBoxContainer/BodyContainer/ScrollContainer/PanelContainer" instance=ExtResource("3_e466s")]
+layout_mode = 2
+script = ExtResource("6_ugj4c")
+
+[node name="ContextItems" parent="VBoxContainer/BodyContainer/ScrollContainer/PanelContainer" instance=ExtResource("3_e466s")]
+layout_mode = 2
+script = ExtResource("7_n3ule")
+
+[node name="GraphEdit" type="GraphEdit" parent="VBoxContainer/BodyContainer"]
+layout_mode = 2
+right_disconnects = true
+minimap_enabled = false
+show_grid_buttons = false
+show_minimap_button = false
+show_arrange_button = false
+script = ExtResource("1_q068f")
+
+[node name="BaseStart" parent="VBoxContainer/BodyContainer/GraphEdit" instance=ExtResource("2_fag43")]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 128.0
+offset_bottom = 128.0
+mouse_filter = 1
+position_offset = Vector2(50, 50)
+slots = Array[ExtResource("9_whik1")]([SubResource("Resource_6xtqo")])
+
+[node name="GraphManager" type="Node" parent="VBoxContainer/BodyContainer" node_paths=PackedStringArray("graph")]
+script = ExtResource("1_8f6gy")
+graph = NodePath("../GraphEdit")
+
+[node name="ErrorWindow" parent="." instance=ExtResource("11_3htot")]
+visible = false
+
+[connection signal="connection_request" from="VBoxContainer/BodyContainer/GraphEdit" to="VBoxContainer/BodyContainer/GraphEdit" method="_on_connection_request"]
+[connection signal="delete_nodes_request" from="VBoxContainer/BodyContainer/GraphEdit" to="VBoxContainer/BodyContainer/GraphEdit" method="_on_delete_nodes_request"]
+[connection signal="disconnection_request" from="VBoxContainer/BodyContainer/GraphEdit" to="VBoxContainer/BodyContainer/GraphEdit" method="_on_disconnection_request"]

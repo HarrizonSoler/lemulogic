@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv8krfats7xd5"]
+
+[ext_resource type="Texture2D" uid="uid://3ty4pp53ckc6" path="res://ui/assets/icons/GraphNode.png" id="1_u51w5"]
+[ext_resource type="Script" path="res://src/editor/variables/variable_node_item.gd" id="2_u7pe1"]
+
+[node name="VariableNodeItem" type="Button"]
+icon = ExtResource("1_u51w5")
+alignment = 2
+script = ExtResource("2_u7pe1")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

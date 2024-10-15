@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=3 uid="uid://ycply8owjyhd"]
+
+[ext_resource type="Script" path="res://src/execution/execution_manager.gd" id="1_h28cw"]
+
+[node name="Execution" type="PanelContainer" node_paths=PackedStringArray("return_button", "start_button", "viewport", "environment_container", "pre_start_container")]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h28cw")
+return_button = NodePath("VBoxContainer/Header/MarginContainer/HBoxContainer/ReturnButton")
+start_button = NodePath("VBoxContainer/Header/MarginContainer/HBoxContainer/StartButton")
+viewport = NodePath("VBoxContainer/EnvironmentContainer/SubViewport")
+environment_container = NodePath("VBoxContainer/EnvironmentContainer")
+pre_start_container = NodePath("VBoxContainer/PreStartContainer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Header" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Header"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Header/MarginContainer"]
+layout_mode = 2
+
+[node name="ReturnButton" type="Button" parent="VBoxContainer/Header/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "RETURN"
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Header/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StartButton" type="Button" parent="VBoxContainer/Header/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "START"
+
+[node name="EnvironmentContainer" type="SubViewportContainer" parent="VBoxContainer"]
+process_mode = 1
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="VBoxContainer/EnvironmentContainer"]
+handle_input_locally = false
+size = Vector2i(2, 2)
+render_target_update_mode = 0
+
+[node name="PreStartContainer" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/PreStartContainer"]
+layout_mode = 2
+text = "Press the START button"

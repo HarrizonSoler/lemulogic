@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://caue0cpubmse8"]
+
+[ext_resource type="Script" path="res://src/editor/node/prefab/math/math_number.gd" id="1_04rq4"]
+[ext_resource type="Resource" uid="uid://dgxaqskgbie4s" path="res://ui/editor/node/types/math.tres" id="2_j3wt8"]
+[ext_resource type="Script" path="res://src/editor/node/slot.gd" id="3_oxq7d"]
+
+[sub_resource type="Resource" id="Resource_a211n"]
+script = ExtResource("3_oxq7d")
+id = 0
+name = &"RETURN"
+type = 0
+capacity = 1
+node_restriction_keyword = &""
+is_optional = false
+
+[node name="MathNumber" type="GraphNode" node_paths=PackedStringArray("input")]
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("1_04rq4")
+input = NodePath("Input")
+type = ExtResource("2_j3wt8")
+slots = Array[ExtResource("3_oxq7d")]([SubResource("Resource_a211n")])
+keyword = &"MATH_NUMBER"
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+text = "Number"
+
+[node name="Input" type="SpinBox" parent="."]
+layout_mode = 2
+min_value = -1e+10
+max_value = 1e+10
+allow_greater = true
+allow_lesser = true

@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://7uor1omxyimt"]
+
+[ext_resource type="Script" path="res://mods/tanks/nodes/context_stop.gd" id="1_do8m4"]
+[ext_resource type="Resource" uid="uid://djywnx1aqmkls" path="res://ui/editor/node/types/context.tres" id="2_ndo12"]
+[ext_resource type="Script" path="res://src/editor/node/slot.gd" id="3_51qni"]
+
+[sub_resource type="Resource" id="Resource_tr6bm"]
+script = ExtResource("3_51qni")
+id = 0
+name = &"RETURN"
+type = 1
+capacity = 0
+is_optional = false
+
+[node name="ContextStop" type="GraphNode"]
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+script = ExtResource("1_do8m4")
+type = ExtResource("2_ndo12")
+slots = Array[Object]([SubResource("Resource_tr6bm")])
+id = null
+keyword = &"STOP"
+allow_close = null
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+text = "Stop"

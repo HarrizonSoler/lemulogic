@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://km0b43umpkp8"]
+
+[ext_resource type="Script" path="res://src/editor/node/prefab/logic/logic_bool.gd" id="1_d82wv"]
+[ext_resource type="Resource" uid="uid://brbq374bse5jr" path="res://ui/editor/node/types/logic.tres" id="2_im1er"]
+[ext_resource type="Script" path="res://src/editor/node/slot.gd" id="3_ql06c"]
+
+[sub_resource type="Resource" id="Resource_w2a50"]
+script = ExtResource("3_ql06c")
+id = 0
+name = &"RETURN"
+type = 0
+capacity = 0
+is_optional = false
+
+[node name="LogicBool" type="GraphNode" node_paths=PackedStringArray("input")]
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("1_d82wv")
+input = NodePath("Input")
+type = ExtResource("2_im1er")
+slots = Array[ExtResource("3_ql06c")]([SubResource("Resource_w2a50")])
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+text = "Bool"
+
+[node name="Input" type="OptionButton" parent="."]
+layout_mode = 2
+alignment = 1
+selected = 0
+item_count = 2
+popup/item_0/text = "True"
+popup/item_1/text = "False"
+popup/item_1/id = 1

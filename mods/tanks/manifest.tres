@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ModManifest" load_steps=2 format=3 uid="uid://dfd81vybwyfpl"]
+
+[ext_resource type="Script" path="res://src/mod/mod_manifest.gd" id="1_rmp5b"]
+
+[resource]
+script = ExtResource("1_rmp5b")
+environment_functions = Array[StringName]([&"SHOOT", &"SCAN", &"MOVE", &"STOP", &"GET_X", &"GET_Y", &"GET_HEALTH"])

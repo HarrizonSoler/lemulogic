@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvu15y067531n"]
+
+[ext_resource type="Script" path="res://src/editor/node/prefab/variable/variable_get.gd" id="1_6vsar"]
+[ext_resource type="Resource" uid="uid://dq07ys71hi2go" path="res://ui/editor/node/types/variable.tres" id="2_eelk8"]
+[ext_resource type="Script" path="res://src/editor/node/slot.gd" id="3_vn4x6"]
+
+[sub_resource type="Resource" id="Resource_38lvt"]
+script = ExtResource("3_vn4x6")
+id = 0
+name = &"RETURN"
+type = 0
+capacity = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_dnwiw"]
+font_color = Color(0.4, 1, 0.79, 1)
+
+[node name="VariableGet" type="GraphNode" node_paths=PackedStringArray("variable_label")]
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("1_6vsar")
+variable_label = NodePath("VariableLabel")
+type = ExtResource("2_eelk8")
+slots = Array[ExtResource("3_vn4x6")]([SubResource("Resource_38lvt")])
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+text = "Get value"
+
+[node name="VariableLabel" type="Label" parent="."]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_dnwiw")
+horizontal_alignment = 1
+vertical_alignment = 1

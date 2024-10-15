@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://hb5rq7vpks6a"]
+
+[ext_resource type="Texture2D" uid="uid://3ty4pp53ckc6" path="res://ui/assets/icons/GraphNode.png" id="1_3t4ed"]
+[ext_resource type="Script" path="res://src/editor/node/node_sidebar_item.gd" id="2_e400i"]
+
+[node name="NodeSidebarItem" type="Button"]
+icon = ExtResource("1_3t4ed")
+alignment = 2
+script = ExtResource("2_e400i")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

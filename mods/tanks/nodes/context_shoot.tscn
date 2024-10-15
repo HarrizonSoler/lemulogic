@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://pvyuiku2bsxu"]
+
+[ext_resource type="Script" path="res://mods/tanks/nodes/context_shoot.gd" id="1_5noo0"]
+[ext_resource type="Resource" uid="uid://djywnx1aqmkls" path="res://ui/editor/node/types/context.tres" id="2_ahaal"]
+[ext_resource type="Script" path="res://src/editor/node/slot.gd" id="3_85yli"]
+
+[sub_resource type="Resource" id="Resource_ii2mt"]
+script = ExtResource("3_85yli")
+id = 0
+name = &"RETURN"
+type = 1
+capacity = 0
+is_optional = false
+
+[sub_resource type="Resource" id="Resource_8bmj1"]
+script = ExtResource("3_85yli")
+id = 1
+name = &"ANGLE"
+type = 0
+capacity = 0
+is_optional = false
+
+[node name="ContextShoot" type="GraphNode"]
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("1_5noo0")
+type = ExtResource("2_ahaal")
+slots = Array[ExtResource("3_85yli")]([SubResource("Resource_ii2mt"), SubResource("Resource_8bmj1")])
+keyword = &"SHOOT"
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+text = "Shoot"
+
+[node name="Angle" type="Label" parent="."]
+layout_mode = 2
+text = "Angle"
+horizontal_alignment = 2

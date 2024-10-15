@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1nswlny7h5ev"]
+
+[ext_resource type="Texture2D" uid="uid://df1huk2tb5itq" path="res://mods/tanks/assets/objects_tiles.png" id="1_23tpt"]
+[ext_resource type="Script" path="res://mods/tanks/src/tank.gd" id="1_jk3t7"]
+[ext_resource type="PackedScene" uid="uid://cyxk7ulg5a2bp" path="res://mods/tanks/bullet.tscn" id="2_2fi32"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmnoe"]
+size = Vector2(40, 42)
+
+[node name="Tank" type="CharacterBody2D" node_paths=PackedStringArray("raycast", "scan_line", "gun_timer", "scan_line_timer", "bullet_spawn", "turret", "body_sprite", "turret_sprite")]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_jk3t7")
+raycast = NodePath("Turret/RayCast2D")
+scan_line = NodePath("Turret/Line2D")
+bullet_scene = ExtResource("2_2fi32")
+gun_timer = NodePath("GunTimer")
+scan_line_timer = NodePath("ScanTimer")
+bullet_spawn = NodePath("Turret/Marker2D")
+turret = NodePath("Turret")
+body_sprite = NodePath("Body")
+turret_sprite = NodePath("Turret/Turret")
+metadata/_edit_group_ = true
+
+[node name="Body" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = -1.5708
+texture = ExtResource("1_23tpt")
+region_enabled = true
+region_rect = Rect2(218, 92, 42, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lmnoe")
+
+[node name="GunTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="ScanTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="Turret" type="Node2D" parent="."]
+
+[node name="Turret" type="Sprite2D" parent="Turret"]
+texture_filter = 1
+rotation = -1.5708
+texture = ExtResource("1_23tpt")
+offset = Vector2(0, 10)
+region_enabled = true
+region_rect = Rect2(358, 244, 12, 30)
+
+[node name="Marker2D" type="Marker2D" parent="Turret"]
+position = Vector2(43, 0)
+
+[node name="RayCast2D" type="RayCast2D" parent="Turret"]
+position = Vector2(25, 0)
+rotation = -1.5708
+target_position = Vector2(0, 175)
+collision_mask = 4
+
+[node name="Line2D" type="Line2D" parent="Turret"]
+visible = false
+position = Vector2(25, 0)
+rotation = -1.5708
+points = PackedVector2Array(0, 0, 0, 175)
+width = 4.0
+default_color = Color(1, 1, 1, 0.317647)
+
+[connection signal="timeout" from="ScanTimer" to="." method="_on_scan_timer_timeout"]

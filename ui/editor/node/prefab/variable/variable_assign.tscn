@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://bu7eag3x4eshy"]
+
+[ext_resource type="Script" path="res://src/editor/node/prefab/variable/variable_assign.gd" id="1_n645o"]
+[ext_resource type="Resource" uid="uid://dq07ys71hi2go" path="res://ui/editor/node/types/variable.tres" id="2_1ntm0"]
+[ext_resource type="Script" path="res://src/editor/node/slot.gd" id="2_2ng6g"]
+
+[sub_resource type="Resource" id="Resource_b0mpy"]
+script = ExtResource("2_2ng6g")
+id = 0
+name = &"RETURN"
+type = 1
+capacity = 0
+is_optional = false
+
+[sub_resource type="Resource" id="Resource_0wlfp"]
+script = ExtResource("2_2ng6g")
+id = 2
+name = &"VALUE"
+type = 0
+capacity = 0
+is_optional = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_rnvck"]
+font_color = Color(0.4, 1, 0.788235, 1)
+
+[node name="VariableAssign" type="GraphNode" node_paths=PackedStringArray("variable_label")]
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = true
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+script = ExtResource("1_n645o")
+variable_label = NodePath("VariableLabel")
+type = ExtResource("2_1ntm0")
+slots = Array[ExtResource("2_2ng6g")]([SubResource("Resource_b0mpy"), SubResource("Resource_0wlfp")])
+keyword = &"VARIABLE_ASSIGN"
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+text = "Assign value"
+
+[node name="VariableLabel" type="Label" parent="."]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_rnvck")
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="."]
+layout_mode = 2
+text = "Value"
+horizontal_alignment = 2

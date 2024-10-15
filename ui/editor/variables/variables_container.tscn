@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://ptcgjswgvee5"]
+
+[ext_resource type="Texture2D" uid="uid://by0ubyqbqampi" path="res://ui/assets/icons/Add.png" id="1_1k7nh"]
+[ext_resource type="Script" path="res://src/editor/variables/variables_container.gd" id="1_l5tux"]
+[ext_resource type="PackedScene" uid="uid://dv8krfats7xd5" path="res://ui/editor/variables/variable_node_item.tscn" id="3_0h2xu"]
+[ext_resource type="PackedScene" uid="uid://pwoevljxmxcl" path="res://ui/editor/variables/variable_item.tscn" id="3_3lygx"]
+[ext_resource type="PackedScene" uid="uid://dcx0dg4ham08k" path="res://ui/editor/variables/create_var_dialog.tscn" id="4_5m1h8"]
+[ext_resource type="PackedScene" uid="uid://cvu15y067531n" path="res://ui/editor/node/prefab/variable/variable_get.tscn" id="4_aciug"]
+[ext_resource type="PackedScene" uid="uid://bu7eag3x4eshy" path="res://ui/editor/node/prefab/variable/variable_assign.tscn" id="5_t8udh"]
+
+[node name="VariablesContainer" type="PanelContainer" node_paths=PackedStringArray("creation_dialog", "var_items_container", "var_nodes_container")]
+script = ExtResource("1_l5tux")
+creation_dialog = NodePath("CreateVarDialog")
+var_items_container = NodePath("MarginContainer/VBoxContainer/VariablesContainer")
+var_nodes_container = NodePath("MarginContainer/VBoxContainer/VarNodesContainer")
+item_scene = ExtResource("3_3lygx")
+var_node_item_scene = ExtResource("3_0h2xu")
+get_var_node_scene = ExtResource("4_aciug")
+assign_var_node_scene = ExtResource("5_t8udh")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Header" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Variables"
+
+[node name="CreateButton" type="Button" parent="MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+icon = ExtResource("1_1k7nh")
+
+[node name="VariablesContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VarNodesContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CreateVarDialog" parent="." instance=ExtResource("4_5m1h8")]
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Header/CreateButton" to="." method="_on_create_button_pressed"]

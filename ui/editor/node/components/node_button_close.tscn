@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://blld4uy1e1ww1"]
+
+[ext_resource type="Texture2D" uid="uid://ys5j0y4on65u" path="res://ui/assets/icons/Close.png" id="1_gi2en"]
+
+[node name="NodeCloseButton" type="Button"]
+offset_right = 20.0
+offset_bottom = 20.0
+icon = ExtResource("1_gi2en")
+flat = true

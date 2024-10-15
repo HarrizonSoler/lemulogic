@@ -1,0 +1,148 @@
+[gd_scene load_steps=9 format=3 uid="uid://krg8gxddi4k6"]
+
+[ext_resource type="Script" path="res://src/editor/node/prefab/logic/logic_for.gd" id="1_wrv44"]
+[ext_resource type="Resource" uid="uid://brbq374bse5jr" path="res://ui/editor/node/types/logic.tres" id="2_5j2nw"]
+[ext_resource type="Script" path="res://src/editor/node/slot.gd" id="3_l6hcd"]
+[ext_resource type="Script" path="res://src/editor/node/prefab/logic/option_variables.gd" id="4_3jgdg"]
+
+[sub_resource type="Resource" id="Resource_71nx4"]
+script = ExtResource("3_l6hcd")
+id = 0
+name = &"RETURN"
+type = 1
+capacity = 0
+node_restriction_keyword = &""
+is_optional = false
+
+[sub_resource type="Resource" id="Resource_5m2x1"]
+script = ExtResource("3_l6hcd")
+id = 2
+name = &"START_VALUE"
+type = 0
+capacity = 0
+node_restriction_keyword = &""
+is_optional = false
+
+[sub_resource type="Resource" id="Resource_de8f1"]
+script = ExtResource("3_l6hcd")
+id = 3
+name = &"CONDITION"
+type = 0
+capacity = 0
+type_restriction = ExtResource("2_5j2nw")
+node_restriction_keyword = &""
+is_optional = false
+
+[sub_resource type="Resource" id="Resource_keoo8"]
+script = ExtResource("3_l6hcd")
+id = 4
+name = &"THEN"
+type = 1
+capacity = 1
+node_restriction_keyword = &""
+is_optional = false
+
+[node name="LogicFor" type="GraphNode" node_paths=PackedStringArray("variable_option", "step_input")]
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = true
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color(1, 1, 1, 1)
+slot/3/left_icon = null
+slot/3/right_enabled = true
+slot/3/right_type = 0
+slot/3/right_color = Color(1, 1, 1, 1)
+slot/3/right_icon = null
+slot/3/draw_stylebox = true
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color(1, 1, 1, 1)
+slot/4/left_icon = null
+slot/4/right_enabled = true
+slot/4/right_type = 0
+slot/4/right_color = Color(1, 1, 1, 1)
+slot/4/right_icon = null
+slot/4/draw_stylebox = true
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color(1, 1, 1, 1)
+slot/5/left_icon = null
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color(1, 1, 1, 1)
+slot/5/right_icon = null
+slot/5/draw_stylebox = true
+script = ExtResource("1_wrv44")
+variable_option = NodePath("Variable/OptionButton")
+step_input = NodePath("Step/SpinBox")
+type = ExtResource("2_5j2nw")
+slots = Array[ExtResource("3_l6hcd")]([SubResource("Resource_71nx4"), SubResource("Resource_5m2x1"), SubResource("Resource_de8f1"), SubResource("Resource_keoo8")])
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+text = "For"
+
+[node name="Variable" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Variable"]
+layout_mode = 2
+text = "Var"
+
+[node name="OptionButton" type="OptionButton" parent="Variable"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("4_3jgdg")
+
+[node name="StartValue" type="Label" parent="."]
+layout_mode = 2
+text = "Start Value"
+horizontal_alignment = 2
+
+[node name="Condition" type="Label" parent="."]
+layout_mode = 2
+text = "Condition"
+horizontal_alignment = 2
+
+[node name="Then" type="Label" parent="."]
+layout_mode = 2
+text = "Then"
+horizontal_alignment = 2
+
+[node name="Step" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Step"]
+layout_mode = 2
+text = "Step"
+
+[node name="SpinBox" type="SpinBox" parent="Step"]
+layout_mode = 2
+value = 1.0
+allow_greater = true
+allow_lesser = true

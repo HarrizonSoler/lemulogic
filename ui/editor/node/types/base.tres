@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="RoutineNodeType" load_steps=2 format=3 uid="uid://8g2oqeetefk0"]
+
+[ext_resource type="Script" path="res://src/editor/node/node_type.gd" id="1_lto5d"]
+
+[resource]
+script = ExtResource("1_lto5d")
+title = "Base"
+color = Color(0.184314, 0.192157, 0.282353, 1)
