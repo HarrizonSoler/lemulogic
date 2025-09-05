@@ -93,7 +93,7 @@ horizontal_alignment = 2
 
 [node name="Then" type="Label" parent="."]
 layout_mode = 2
-text = "Then"
+text = "Do"
 horizontal_alignment = 2
 
 [node name="Else" type="Label" parent="."]
