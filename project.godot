@@ -10,10 +10,14 @@ config_version=5
 
 [application]
 
-config/name="Lemulogic"
+config/name="lemulogic"
 run/main_scene="res://ui/editor/editor.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://ui/assets/icons/GraphEdit.png"
+
+[audio]
+
+buses/name="Lemulogic"
 
 [autoload]
 
