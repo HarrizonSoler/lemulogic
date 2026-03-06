@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://src/editor/node/slot.gd" id="9_whik1"]
 [ext_resource type="PackedScene" uid="uid://cgejp4vm2l2s2" path="res://ui/editor/error/error_window.tscn" id="11_3htot"]
 
-[sub_resource type="Resource" id="Resource_6oo7c"]
+[sub_resource type="Resource" id="Resource_ridr1"]
 resource_local_to_scene = true
 script = ExtResource("9_whik1")
 id = 0
@@ -121,7 +121,7 @@ offset_right = 128.0
 offset_bottom = 128.0
 mouse_filter = 1
 position_offset = Vector2(50, 50)
-slots = Array[ExtResource("9_whik1")]([SubResource("Resource_6oo7c")])
+slots = Array[ExtResource("9_whik1")]([SubResource("Resource_ridr1")])
 
 [node name="GraphManager" type="Node" parent="VBoxContainer/BodyContainer" node_paths=PackedStringArray("graph")]
 script = ExtResource("1_8f6gy")

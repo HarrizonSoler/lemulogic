@@ -26,6 +26,10 @@ EditorSingleton="*res://src/editor/editor_singleton.gd"
 EnvironmentSingleton="*res://src/mod/environment_singleton.gd"
 ArenaEvents="*res://mods/tanks/src/arena_events.gd"
 
+[editor]
+
+import/use_multiple_threads=false
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
