@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 on: push
 
 env:
-  WORKING_DIRECTORY: .
+  PROJECT_PATH: .
   GODOT_VERSION: 4.3
   EXPORT_NAME: lemulogic
 
