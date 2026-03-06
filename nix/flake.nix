@@ -16,7 +16,6 @@
     devShells.${system}.default = pkgs.mkShell {
       packages = with pkgs; [
         godotPackages_4_3.godot
-        act
       ];
     };
   };
