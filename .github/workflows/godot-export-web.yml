@@ -3,6 +3,8 @@ on: push
 
 env:
   WORKING_DIRECTORY: .
+  GODOT_VERSION: 4.3
+  EXPORT_NAME: lemulogic
 
 jobs:
   export-web:
