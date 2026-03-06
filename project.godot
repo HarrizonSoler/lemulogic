@@ -30,6 +30,11 @@ ArenaEvents="*res://mods/tanks/src/arena_events.gd"
 
 import/use_multiple_threads=false
 
+[navigation]
+
+avoidance/thread_model/avoidance_use_multiple_threads=false
+baking/thread_model/baking_use_multiple_threads=false
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
